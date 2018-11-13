@@ -31,6 +31,9 @@ AccessFileName .htaccess
   AllowOverride None
 </Directory>
 
+# FIXME: Only include modules that are really needed
+Include conf.modules.d/*.conf
+
 # TODO: variablen!
 DefaultType none
 HostnameLookups Off
@@ -41,7 +44,7 @@ EnableSendfile {{ apache_sendfile }}
 AllowEncodedSlashes "{{ apache_allow_encoded_slashes }}"
 {% endif %}
 
-Include "{{ apache_mod_load_dir }}/*.load"
+IncludeOptional "{{ apache_mod_load_dir }}/*.load"
 {% if apache_mod_load_dir != apache_confd_dir and apache_mod_load_dir != apache_vhost_load_dir %}
 Include "{{ apache_mod_load_dir }}/*.conf"
 {% endif %}

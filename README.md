@@ -8,6 +8,10 @@
 
 This role provides numerous security-related configurations, providing all-round base protection.  It is intended to be compliant with the [DevSec Apache Baseline](https://github.com/dev-sec/apache-baseline).
 
+## Variables
+
+| Name           | Default Value | Description                        |
+| -------------- | ------------- | -----------------------------------| 
 
 [1]: http://travis-ci.org/dev-sec/ansible-apache-hardening
 [2]: https://gitter.im/dev-sec/general
