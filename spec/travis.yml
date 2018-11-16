@@ -1,3 +1,4 @@
 - hosts: localhost
   roles:
+    - geerlingguy.apache
     - ansible-apache-hardening
