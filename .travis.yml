@@ -63,7 +63,7 @@ script:
   - 'docker run --detach --volume="${PWD}":/etc/ansible/roles/ansible-apache-hardening:ro ${run_opts} rndmh3ro/docker-${distro}-ansible:${version} "${init}" > "${container_id}"'
   
   # Install geerlingguy.apache as a prereq
-  - 'docker exec "$(cat ${container_id})" ansible-galaxy install geerlingguy.apache'
+  - 'docker exec "$(cat ${container_id})" ansible-galaxy install -c geerlingguy.apache'
 
   # Test role.
   - 'docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/roles/ansible-apache-hardening/spec/travis.yml --diff'
