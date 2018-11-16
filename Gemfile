@@ -4,9 +4,6 @@ source 'https://rubygems.org'
 
 group :test do
   gem 'rake'
-  gem 'foodcritic', '~> 4.0'
-  gem 'thor-foodcritic'
-  gem 'coveralls',  require: false
 end
 
 group :development do
