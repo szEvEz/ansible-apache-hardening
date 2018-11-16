@@ -89,6 +89,10 @@ Alias /error/ "{{ apache_error_documents_path }}/"
   ForceLanguagePriority Prefer Fallback
 </Directory>
 
+<IfModule mime_module>
+    TypesConfig /etc/mime.types
+</IfModule>
+
 ErrorDocument 400 /error/HTTP_BAD_REQUEST.html.var
 ErrorDocument 401 /error/HTTP_UNAUTHORIZED.html.var
 ErrorDocument 403 /error/HTTP_FORBIDDEN.html.var
