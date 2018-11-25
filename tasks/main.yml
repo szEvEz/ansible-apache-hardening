@@ -16,7 +16,7 @@
     apache_version: '{{ _apache_version.stdout.split()[2].split("/")[1] }}'
 
 - name: create directories in case they don't exist
-  file: path="{{item}}" state=directory owner=root group=root mode=0740
+  file: path="{{item}}" state=directory owner=root group=root mode=0750
   with_items:
     - "{{apache_server_root}}"
     - "{{apache_confd_dir}}"
@@ -29,6 +29,8 @@
   template: src="httpd.conf.j2" dest="{{apache_conf_dir}}/{{apache_conf_file}}" owner=root group=root mode=0640 backup=yes
   notify: restart apache
 
-- name: harden apache
+- name: harden apache 1
   template: src="hardening.conf.j2" dest="{{apache_confd_dir}}/90.hardening.conf" owner=root group=root mode=0640 backup=yes
+  
+- name: harden apache 2
   template: src="ssl.conf.j2" dest="{{apache_confd_dir}}/ssl.conf" owner=root group=root mode=0640 backup=yes

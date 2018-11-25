@@ -96,7 +96,8 @@ verifier:
   sudo: true
   inspec_tests:
     #- https://github.com/dev-sec/apache-baseline
-    - ../apache-baseline
+    - https://github.com/szEvEz/apache-baseline/tree/newbaseline
+    # - ../apache-baseline
 
 suites:
 - name: apache
